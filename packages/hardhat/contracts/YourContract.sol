@@ -4,4 +4,8 @@ pragma solidity ^0.8.13;
 
 contract YourContract {
     string public greet = "Hello World!";
+
+    function setGreet(string memory _greet) public {
+        greet = _greet;
+    }
 }
