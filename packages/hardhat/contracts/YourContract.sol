@@ -17,7 +17,7 @@ contract YourContract {
                 break;
             }
         }
-        
+
         while (j < 10) {
             j++;
         }
