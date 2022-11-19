@@ -6,4 +6,8 @@ contract YourContract {
     function get(address _address) public view returns(uint) {
         return myMap[_address];
     }
+
+    function set(address _address, uint _value) public {
+        myMap[_address] = _value;
+    }
 }
