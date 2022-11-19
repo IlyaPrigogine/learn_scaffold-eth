@@ -2,16 +2,6 @@
 pragma solidity ^0.8.13;
 
 contract YourContract {
-    mapping(address => uint) myMap;
-    function get(address _address) public view returns(uint) {
-        return myMap[_address];
-    }
-
-    function set(address _address, uint _value) public {
-        myMap[_address] = _value;
-    }
-
-    function remove(address _address) public {
-        delete myMap[_address];
-    }
+    mapping (address => uint) public mapUint;
+    mapping (address => bool) public mapBool;
 }
