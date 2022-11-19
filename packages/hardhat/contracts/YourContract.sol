@@ -2,20 +2,26 @@
 pragma solidity ^0.8.13;
 
 contract YourContract {
-    uint public oneWei = 1 wei;
-    bool public isOneWei = oneWei == 1;
-
-    uint public oneEther = 1 ether;
-    bool public isOneEther = oneEther == 1e18;
-
-    function setOneWei(uint _n) public {
-        oneWei = _n;
-    }
-    function setOneEther(uint _n) public {
-        oneEther = _n * 1e18;
-    }
-
-    function getIsOneEther() public view returns(bool) {
-        return oneEther == 1e18 ? true: false;
+    uint public result_i;
+    uint public result_j;
+    function loop() public {
+        uint i;
+        uint j;
+        for ( i = 0; i < 10; i++) {
+            if (i == 3) {
+                // Skip to next iteration with continue
+                continue;
+            }
+            if (i == 5) {
+                // Exit loop with break
+                break;
+            }
+        }
+        
+        while (j < 10) {
+            j++;
+        }
+        result_i = i;
+        result_j = j;
     }
 }
