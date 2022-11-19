@@ -1,11 +1,16 @@
 // SPDX-License-Identifier: MIT
-// compiler version must be greater than or equal to 0.8.13 and less than 0.9.0
 pragma solidity ^0.8.13;
 
 contract YourContract {
-    string public greet = "Hello World!";
+    uint public count;
 
-    function setGreet(string memory _greet) public {
-        greet = _greet;
+    function get() public view returns (uint) {
+        return count;
+    }
+    function inc() public {
+        count += 1;
+    }
+    function dec() public {
+        count -= 1;
     }
 }
