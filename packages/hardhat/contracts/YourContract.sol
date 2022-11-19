@@ -2,15 +2,16 @@
 pragma solidity ^0.8.13;
 
 contract YourContract {
-    uint public count;
+    // State variables are stored on the blockchain.
+    string public text = "Hello";
+    uint public num = 123;
+    uint public isGreaterThanZero;
+    address public sender;
 
-    function get() public view returns (uint) {
-        return count;
-    }
-    function inc() public {
-        count += 1;
-    }
-    function dec() public {
-        count -= 1;
+    function doSomething() public {
+        uint i = 456;
+
+        isGreaterThanZero = block.timestamp > 0 ? 1:0; // Current block timestamp
+        sender = msg.sender; // address of the caller
     }
 }
