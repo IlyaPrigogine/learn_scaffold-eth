@@ -10,4 +10,8 @@ contract YourContract {
     function set(address _address, uint _value) public {
         myMap[_address] = _value;
     }
+
+    function remove(address _address) public {
+        delete myMap[_address];
+    }
 }
