@@ -10,4 +10,6 @@ contract YourContract {
         MY_ADDRESS = msg.sender;
         MY_UINT = 1;
     }
+
+
 }
