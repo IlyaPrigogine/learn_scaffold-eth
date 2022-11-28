@@ -1,15 +1,24 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.13;
-
+pragma solidity >0.4.23 <0.9.0;
+import "./Foundation.sol";
 contract YourContract {
-    mapping (address => bool) MapBool;
-    function get(address _addr) public view returns(bool) {
-        return MapBool[_addr];
+    Foundation[] private _foundations;
+
+    function createFoundation(
+        string memory name
+    ) public {
+        Foundation foundation = new Foundation(
+            name,
+            msg.sender
+        );
+        _foundations.push(foundation);
     }
-    function set(address _addr, bool _value) public {
-        MapBool[_addr] = _value;
-    }
-    function remove(address _addr) public {
-        delete MapBool[_addr];
+
+    function allFoundations(uint256 limit, uint256 offset)
+    public
+    view
+    returns (Foundation[] memory coll)
+    {
+        return coll;
     }
 }
