@@ -8,22 +8,23 @@ contract YourContract {
     }
 
     Todo[] todos;
-    function get(uint _index) public view returns(string memory text, bool completed) {
-        return (todos[_index].text, todos[_index].completed);
-    }
-
-    function getArr() public view returns(Todo[] memory) {
-        return todos;
-    }
-
-    function create(string calldata _text) public {
+    /* public functions*/
+    function create(string memory _text) public {
         Todo memory todo;
         todo.text = _text;
         todos.push(todo);
     }
 
     function toggleCompleted(uint _index) public {
-        Todo storage todo = todos[_index];
-        todo.completed = !todo.completed;
+        todos[_index].completed = !todos[_index].completed;
+    }
+
+    /* views */
+    function get(uint _index) public view returns(Todo memory) {
+        return todos[_index];
+    }
+
+    function getLength() public view returns(uint) {
+        return todos.length;
     }
 }
