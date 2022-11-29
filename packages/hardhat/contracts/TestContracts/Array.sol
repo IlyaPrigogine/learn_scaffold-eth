@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.13;
 
-contract YourContract {
+contract Array {
     uint[] arr2 = [1, 2, 3];
 
 
