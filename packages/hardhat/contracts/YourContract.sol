@@ -5,6 +5,7 @@ contract YourContract {
     struct Todo {
         string text;
         bool completed;
+        uint timestamp;
     }
 
     Todo[] todos;
@@ -12,11 +13,13 @@ contract YourContract {
     function create(string memory _text) public {
         Todo memory todo;
         todo.text = _text;
+        todo.timestamp = block.timestamp;
         todos.push(todo);
     }
 
     function toggleCompleted(uint _index) public {
         todos[_index].completed = !todos[_index].completed;
+        todos[_index].timestamp = block.timestamp;
     }
 
     /* views */
