@@ -8,7 +8,7 @@ contract YourContract {
         uint timestamp;
     }
 
-    Todo[] todos;
+    Todo[] public todos;
     /* public functions*/
     function create(string memory _text) public {
         Todo memory todo;
