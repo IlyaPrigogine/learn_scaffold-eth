@@ -1,14 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.13;
 
-contract YourContract {
-    enum Status {
-        Pending,
-        Shipped,
-        Accepted,
-        Rejected,
-        Canceled
-    }
+import "./EnumDeclaration.sol";
+contract Enum {
     Status status;
 
     function getStatus() public view returns (Status) {
