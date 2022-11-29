@@ -4,14 +4,13 @@ pragma solidity ^0.8.13;
 contract YourContract {
     enum Status {
         Pending,
-        Shipped,
         Accepted,
         Rejected,
         Canceled
     }
     Status status;
 
-    function getStatus() public view returns (Status) {
+    function get() public view returns(Status) {
         return status;
     }
 
@@ -19,8 +18,12 @@ contract YourContract {
         status = Status.Canceled;
     }
 
-    function rejected() public {
-        status = Status.Rejected;
+    function accept() public {
+        status = Status.Accepted;
+    }
+
+    function reject() public {
+        status = Status.Accepted;
     }
 
     function reset() public {
