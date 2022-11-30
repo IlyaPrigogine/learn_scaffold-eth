@@ -2,23 +2,26 @@
 pragma solidity ^0.8.13;
 
 contract X {
-    string public name;
+    string public XName;
     constructor (string memory _name) {
-        name = _name;
+        XName = _name;
     }
 }
 
 contract Y {
-    uint public n;
-    constructor (uint _n) {
-        n = _n;
+    string public YName;
+    constructor (string memory _name) {
+        YName = _name;
     }
 }
-
-
 contract YourContract is X,Y{
-    uint public balance;
-    constructor () X("X is called") Y(3){
+    address public owner;
+    constructor () X("X world") Y("Y world"){
+        owner = msg.sender;
+    }
+
+    function setName(string memory _XName, string memory _YName) public {
+        XName = _XName;
+        YName = _YName;
     }
 }
-
