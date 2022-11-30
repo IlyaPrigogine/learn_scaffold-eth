@@ -2,32 +2,21 @@
 pragma solidity ^0.8.13;
 
 contract YourContract {
-    struct Todo {
+    struct Todo{
         string text;
         bool completed;
-        uint timestamp;
     }
 
     Todo[] public todos;
-    /* public functions*/
+
     function create(string memory _text) public {
         Todo memory todo;
         todo.text = _text;
-        todo.timestamp = block.timestamp;
+        todo.completed = false;
         todos.push(todo);
     }
 
     function toggleCompleted(uint _index) public {
         todos[_index].completed = !todos[_index].completed;
-        todos[_index].timestamp = block.timestamp;
-    }
-
-    /* views */
-    function get(uint _index) public view returns(Todo memory) {
-        return todos[_index];
-    }
-
-    function getLength() public view returns(uint) {
-        return todos.length;
     }
 }
