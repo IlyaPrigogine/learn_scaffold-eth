@@ -2,12 +2,9 @@
 pragma solidity ^0.8.13;
 
 contract YourContract {
-    event Log(address indexed sender, string message);
-    event AnotherLog();
+    event Log(address indexed sender,string message);
 
     function test() public {
-        emit Log(msg.sender, "Hello World!");
-        emit Log(msg.sender, "Hello EVM!");
-        emit AnotherLog();
+        emit Log(msg.sender, "TEST LOG");
     }
 }
