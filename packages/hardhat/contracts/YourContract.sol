@@ -1,23 +1,23 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.13;
 
-contract YourContract {
-    function returnMany() public pure returns (uint x, bool b, uint y) {
-        x = 1; b = true; y = 2;
-    }
-
-    uint public balance = 2;
-    function returnMany2() public view returns(uint x, bool b, uint y){
-        x = balance - 1;
-        y = balance + 1;
-        b = false;
-    }
-
-    function inc() public {
-        balance +=1;
-    }
-
-    function dec() public {
-        balance -=1;
+contract X {
+    string public name;
+    constructor (string memory _name) {
+        name = _name;
     }
 }
+
+contract Y {
+    uint public y;
+    constructor () {
+    }
+}
+
+contract YourContract is X,Y{
+    constructor () X("X was called") {
+
+    }
+}
+
+
