@@ -8,7 +8,7 @@ contract A {
     }
 }
 
-contract YourContract is A {
+contract Shadowing is A {
     constructor() {
     }
 
