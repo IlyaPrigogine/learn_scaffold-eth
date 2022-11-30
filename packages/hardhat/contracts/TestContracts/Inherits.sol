@@ -19,7 +19,7 @@ contract C is A {
     }
 }
 
-contract YourContract is C {
+contract Inherits is C {
     function foo() public view override returns(string memory) {
         return "YourContract";
     }
