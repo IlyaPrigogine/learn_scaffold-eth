@@ -2,21 +2,38 @@
 pragma solidity ^0.8.13;
 
 contract YourContract {
-    uint public balance;
-    function deposit(uint _amount) public {
-        uint oldBalance = balance;
-        uint newBalance = oldBalance + _amount;
-        require(newBalance >= oldBalance, "OverFlow");
-        balance += _amount;
+    address public owner;
+    uint public x = 10;
+    bool public locked;
 
-        assert(balance>=oldBalance);
+    constructor() {
+        owner = msg.sender;
     }
 
-    function withdraw(uint _amount) public {
-        uint oldBalance = balance;
-        require(_amount <= balance, "no enough");
-        balance -= _amount;
+//    modifier onlyOwner() {
+//        require(msg.sender == owner, "Not owner");
+//        _;
+//    }
+//    modifier validAddress(address _addr) {
+//        require(_addr != address(0), "Not valid address");
+//        _;
+//    }
+//
+//    function changeOwner(address _newOwner) public onlyOwner validAddress(_newOwner) {
+//        owner = _newOwner;
+//    }
 
-        assert(balance<=oldBalance);
+    modifier noReentrancy() {
+        require(!locked, "No reentrancy");
+        locked = true;
+        _;
+        locked = false;
+    }
+
+    function decrement(uint i) public noReentrancy {
+        x -= i;
+        if (i > 1) {
+            decrement(i - 1);
+        }
     }
 }
