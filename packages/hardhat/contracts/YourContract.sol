@@ -2,9 +2,11 @@
 pragma solidity ^0.8.13;
 
 contract YourContract {
-    event Log(address indexed sender, string message);
+    function returnMany() public pure returns (uint, bool, uint) {
+        return (1, true, 2);
+    }
 
-    function test() public {
-        emit Log(msg.sender, "test log");
+    function named() public pure returns (uint x, bool b, uint y) {
+        x = 3; b = false; y = 4;
     }
 }
