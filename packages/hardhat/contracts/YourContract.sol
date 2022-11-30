@@ -1,23 +1,24 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.13;
 
-contract YourContract {
-    address public owner;
+contract X {
+    string public name;
+    constructor (string memory _name) {
+        name = _name;
+    }
+}
+
+contract Y {
+    uint public n;
+    constructor (uint _n) {
+        n = _n;
+    }
+}
+
+
+contract YourContract is X,Y{
     uint public balance;
-    constructor () {
-        owner = msg.sender;
-    }
-    function setOwner() public {
-        owner = msg.sender;
-    }
-
-    modifier onlyOwner {
-        require(msg.sender == owner, "not owner");
-        _;
-    }
-
-    function setBalance(uint _balance) public onlyOwner {
-        balance = _balance;
+    constructor () X("X is called") Y(3){
     }
 }
 
