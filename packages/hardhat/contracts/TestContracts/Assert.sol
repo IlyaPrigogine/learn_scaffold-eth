@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.13;
 
-contract YourContract {
+contract Assert {
     uint public balance;
     uint public constant MAX_UINT = 2**256 - 1;
 
