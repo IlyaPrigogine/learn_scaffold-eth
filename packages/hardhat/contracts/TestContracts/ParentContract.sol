@@ -13,7 +13,7 @@ contract A {
     }
 }
 
-contract YourContract is A {
+contract ParentContract is A {
     function foo() public override {
         A.bar();
     }
