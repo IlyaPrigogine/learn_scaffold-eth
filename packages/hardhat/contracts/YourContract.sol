@@ -2,17 +2,21 @@
 pragma solidity ^0.8.13;
 
 contract A {
-    string public name = "Contract A";
-    function getName() public view virtual returns (string memory) {
-        return name;
+    string public message;
+
+    function foo() public virtual {
+        message = "foo";
+    }
+
+    function bar() public virtual {
+        message = "bar";
     }
 }
 
 contract YourContract is A {
-    constructor() {
+    function foo() public override {
+        A.bar();
     }
 
-    function getName() public view override returns(string memory) {
-        return "YourContract";
-    }
 }
+
