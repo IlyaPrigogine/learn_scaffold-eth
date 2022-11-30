@@ -3,24 +3,18 @@ pragma solidity ^0.8.13;
 
 contract A {
     string public message;
-
-    function foo() public virtual {
-        message = "foo";
-    }
-
-    function bar() public virtual {
-        message = "bar";
+    function foo() public {
+        message = string.concat(message, "foo");
     }
 }
 
-contract YourContract is A {
-    function foo() public override {
-        A.bar();
+contract YourContract is A{
+    function test() public {
+        A.foo();
     }
 
-    function foo2() public {
+    function test2() public {
         super.foo();
     }
-
 }
 
