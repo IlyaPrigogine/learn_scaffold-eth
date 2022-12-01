@@ -1,22 +1,14 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.13;
 
-contract A{
+contract A {
     string public message;
-    function foo() public virtual {
+    function foo() public {
         message = string.concat(message,"A");
     }
 }
 
-contract B is A {
-    function foo() public virtual override {
-        message = string.concat(message, "B");
-    }
-}
+contract YourContract is A{
 
-contract YourContract is B{
-    function foo() public virtual override {
-        message = string.concat(message, "YOU");
-    }
 }
 
