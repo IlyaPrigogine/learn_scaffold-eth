@@ -21,4 +21,12 @@ contract YourContract is A{
     function bar() public {
         super._bar();
     }
+
+    function foo2() external {
+        super._foo();
+    }
+
+    function bar2() external {
+        super._bar();
+    }
 }
