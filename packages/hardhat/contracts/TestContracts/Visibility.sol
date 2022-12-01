@@ -17,7 +17,7 @@ contract A {
     }
 }
 
-contract YourContract is A{
+contract Visibility is A{
 
 }
 
