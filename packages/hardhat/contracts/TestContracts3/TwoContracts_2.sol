@@ -10,12 +10,16 @@ contract A {
     constructor ( ) {
         n = 1000;
     }
+
+    function set(uint _n) public {
+        n = _n;
+    }
 }
 
 contract TwoContracts_2 {
     A a;
     constructor () {
-        a = A(0xAb2185E2b94F2df4B4A9aAa6400160E90871F5bA);
+        a = A(0x391209eC7C62713F2DC48E6582Cc264872A5aCcD);
     }
 
     function incTwice() public {
@@ -25,6 +29,16 @@ contract TwoContracts_2 {
 
     function n() public view returns(uint) {
         return a.n();
+    }
+
+    function incTriple() public {
+        a.inc();
+        a.inc();
+        a.inc();
+    }
+
+    function reset() public {
+        a.set(1000);
     }
 }
 
