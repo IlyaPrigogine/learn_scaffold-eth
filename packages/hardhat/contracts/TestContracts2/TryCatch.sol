@@ -12,7 +12,7 @@ interface IFoo {
     function owner() external view returns(address);
 }
 
-contract YourContract{
+contract TryCatch{
     address public curAddr;
     string public message;
     function create() public {
