@@ -19,7 +19,7 @@ interface ICar {
 
 }
 
-contract YourContract {
+contract CreateContract {
     Car[] cars;
 
     function create (string memory _model) external {
