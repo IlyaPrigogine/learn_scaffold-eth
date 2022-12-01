@@ -4,20 +4,20 @@ pragma solidity ^0.8.13;
 contract A {
     string public message;
     uint public num;
-    function foo() public {
+    function _foo() internal {
         message = string.concat(message,"A");
     }
 
-    function bar() internal {
+    function _bar() internal {
         num += 1;
     }
+}
+contract Visibility is A {
+    function bar() public {
+        super._bar();
+    }
 
-    function baz() external {
-        bar();
+    function foo() public {
+        super._foo();
     }
 }
-
-contract Visibility is A{
-
-}
-
