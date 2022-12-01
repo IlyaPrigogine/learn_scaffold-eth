@@ -5,19 +5,28 @@ contract A {
     string public message;
     uint public num;
     function _foo() internal {
-        message = string.concat(message,"A");
+        message = string.concat(message, "A");
     }
 
     function _bar() internal {
         num += 1;
     }
 }
-contract Visibility is A {
+
+contract Visibility is A{
+    function foo() public {
+        super._foo();
+    }
+
     function bar() public {
         super._bar();
     }
 
-    function foo() public {
+    function foo2() external {
         super._foo();
+    }
+
+    function bar2() external {
+        super._bar();
     }
 }
