@@ -34,11 +34,7 @@ contract YourContract {
 
     function getBookStore(uint _index) public view returns(string memory _name, string memory _loc, uint _PV) {
         BookStore bs = bookStores[_index];
-        return (
-            bs.name(),
-            bs.location(),
-            bs.PV()
-        );
+        return ( bs.name(), bs.location(), bs.PV());
     }
 }
 
