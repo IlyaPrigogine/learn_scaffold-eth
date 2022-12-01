@@ -8,7 +8,7 @@ contract MyToken is ERC20 {
     constructor() ERC20("MyToken", "MTK") {}
 }
 
-contract YourContract {
+contract MyContract {
     function aaa(address _addr) public view returns (string memory) {
         return IERC20Metadata(_addr).name();
     }
