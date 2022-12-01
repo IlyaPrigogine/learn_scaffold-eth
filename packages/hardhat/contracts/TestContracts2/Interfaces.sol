@@ -3,22 +3,22 @@ pragma solidity ^0.8.13;
 
 contract A {
     uint public num;
-    function inc() external {
-        num += 1;
+    function inc() public {
+        num +=1;
     }
 }
 
 interface ICounter {
-    function num() external view returns(uint);
     function inc() external;
+    function num() external view returns(uint);
 }
 
-contract Interfaces {
-    function foo(address _A) external {
-        ICounter(_A).inc();
+contract MyContract {
+    function foo(address _addr) public {
+        ICounter(_addr).inc();
     }
 
-    function get(address _A) external view returns(uint){
-        return ICounter(_A).num();
+    function get(address _addr) external view returns(uint) {
+        return ICounter(_addr).num();
     }
 }
