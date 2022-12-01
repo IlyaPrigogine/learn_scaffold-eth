@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-contract YourContract {
-    receive() external payable {}
+contract Fallback {
+    
+}
 
-    function balance() public view returns(uint) {
-        return address (this).balance;
-    }
+contract YourContract {
+
 }
 
