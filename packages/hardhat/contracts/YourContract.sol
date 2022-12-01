@@ -2,10 +2,15 @@
 pragma solidity ^0.8.4;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-contract YourContract is ERC20 {
-    address public owner;
-    constructor () ERC20("YC","YCT") {
-        super._mint(msg.sender,10000e18);
-        owner = msg.sender;
+contract MTK is ERC20 {
+    constructor() ERC20("MTK", "MTK") {
+        super._mint(msg.sender, 10000e18);
+    }
+}
+
+
+contract YourContract  {
+    function foo(address _addr) public view returns(string memory) {
+        return IERC20Metadata(_addr).name();
     }
 }
