@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-contract Fallback {
-    
+contract A {
+
 }
 
-contract YourContract {
+contract YourContract is A{
 
 }
 
