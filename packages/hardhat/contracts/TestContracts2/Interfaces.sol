@@ -13,7 +13,7 @@ interface ICounter {
     function inc() external;
 }
 
-contract YourContract {
+contract Interfaces {
     function foo(address _A) external {
         ICounter(_A).inc();
     }
