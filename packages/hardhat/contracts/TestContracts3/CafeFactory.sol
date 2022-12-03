@@ -8,7 +8,7 @@ contract Cafe {
     }
 }
 
-contract YourContract {
+contract CafeFactory {
     address[] cafes;
     function create(string memory _name) public {
         Cafe cafe = new Cafe(_name);
