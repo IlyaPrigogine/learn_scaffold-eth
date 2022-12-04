@@ -2,17 +2,27 @@
 pragma solidity ^0.8.4;
 
 contract YourContract {
+    address public owner;
     receive() external payable {}
-    function deposit() public payable{
+    constructor () {
+        owner = msg.sender;
+    }
+
+    function deposit() external payable{
         payable(this).transfer(msg.value);
     }
 
-    function withdraw() public {
+    function withdraw() external {
+        require(msg.sender == owner,"only owner");
         payable(msg.sender).transfer(address(this).balance);
     }
 
-    // public views
-    function balance() public view returns(uint) {
+    function changeOwner() external {
+        owner = msg.sender;
+    }
+
+    /* views */
+    function balance() external view returns(uint) {
         return address(this).balance;
     }
 }
