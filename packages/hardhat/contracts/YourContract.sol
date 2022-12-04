@@ -2,18 +2,17 @@
 pragma solidity ^0.8.13;
 
 contract YourContract {
-    address payable public owner;
-    constructor() {
-        owner = payable(msg.sender);
-    }
-
     receive() external payable {}
-
-    function withdraw(uint _amount) external {
-        payable(msg.sender).transfer(_amount);
-    }
 
     function getBalance() public view returns(uint) {
         return address(this).balance;
+    }
+
+    function withdraw(uint _amount) public {
+        payable(msg.sender).transfer(_amount);
+    }
+
+    function deposit() public payable {
+        payable(this).transfer(msg.value);
     }
 }
