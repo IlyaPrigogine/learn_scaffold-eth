@@ -1,26 +1,20 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-contract Cafe {
-    string public name;
-    constructor (string memory _name) {
-        name = _name;
-    }
-}
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract YourContract {
-    address[] cafes;
-    function create(string memory _name) public {
-        Cafe cafe = new Cafe(_name);
-        cafes.push(address(cafe));
+    function encodeWithSignature(address to, uint amount) external pure returns (bytes memory)
+    {
+        return abi.encodeWithSignature("transfer(address,uint256)", to, amount);
     }
 
-    function getCafeLength() public view returns (uint) {
-        return cafes.length;
+    function encodeWithSelector(address to, uint amount) external pure returns (bytes memory)
+    {
+        return abi.encodeWithSelector(IERC20.transfer.selector, to, amount);
     }
 
-    function getCafe(uint _index) public view returns(string memory) {
-        address cafeAddress = cafes[_index];
-        return Cafe(cafeAddress).name();
+    function encodeCall(address to, uint amount) external pure returns (bytes memory) {
+        return abi.encodeCall(IERC20.transfer, (to, amount));
     }
 }
