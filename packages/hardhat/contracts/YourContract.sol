@@ -18,16 +18,5 @@ interface IYC {
     function mint() external;
 }
 
-contract YourContract is ERC721Holder {
-    address public tokenAddress;
-    constructor() {
-    }
-
-    function setToken(address _address) public {
-        tokenAddress = _address;
-    }
-
-    function mint() public {
-        IYC(tokenAddress).mint();
-    }
+contract YourContract {
 }
