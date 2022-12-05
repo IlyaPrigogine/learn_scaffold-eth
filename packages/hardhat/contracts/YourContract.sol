@@ -1,28 +1,22 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.4;
+pragma solidity ^0.8.0;
 
-contract YourContract {
-    address public owner;
-    receive() external payable {}
-    constructor () {
-        owner = msg.sender;
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/utils/Counters.sol";
+
+contract YourContract is ERC721 {
+    using Counters for Counters.Counter;
+    Counters.Counter public _tokenIdCounter;
+
+    constructor() ERC721("MT", "MT") {}
+    function _baseURI() internal pure override returns (string memory) {
+        return "YOUR_API_URL/api/erc721/";
     }
 
-    function deposit() external payable{
-        payable(this).transfer(msg.value);
-    }
-
-    function withdraw() external {
-        require(msg.sender == owner,"only owner");
-        payable(msg.sender).transfer(address(this).balance);
-    }
-
-    function changeOwner() external {
-        owner = msg.sender;
-    }
-
-    /* views */
-    function balance() external view returns(uint) {
-        return address(this).balance;
+    function mint(address to) public returns (uint256)
+    {
+        _tokenIdCounter.increment();
+        _safeMint(to, _tokenIdCounter.current());
+        return _tokenIdCounter.current();
     }
 }
